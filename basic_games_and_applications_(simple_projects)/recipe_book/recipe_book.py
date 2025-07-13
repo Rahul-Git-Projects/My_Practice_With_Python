@@ -10,7 +10,7 @@ def choosing_category():
     categories = list(categories_set)
     for index, category_c in enumerate(categories):
         print(f"{index + 1}: {category_c}")
-    choose_category = input("Choose a category: ")
+    choose_category = input("Choose a category(Type its name not its number): ")
     while choose_category not in categories:
         choose_category = input("Sorry,Please choose a category that actually exists in the folder")
     return choose_category
@@ -24,16 +24,14 @@ def read_recipe():
     recipies = list(recipe_set)
     for index, dish in enumerate(recipies):
         print(f"{index + 1}: {dish}")
-    choose_recipe = input("Choose a recipe: ")
+    choose_recipe = input("Choose a recipe(Type its name not its number): ")
     while choose_recipe not in recipies:
-        choose_recipe = input("Sorry,Please choose a recipe that actually exists in the category")
+        choose_recipe = input("Sorry,Please choose a recipe that actually exists in the category:  ")
 
     content = Path(main_path,category,f"{choose_recipe}.txt").read_text()
     os.system("cls")
     print(content)
     reply = input("if done reading,press enter")
-
-
 
 def create_recipe():
     category = choosing_category()
@@ -62,7 +60,7 @@ def delete_recipe():
         print(f"{index + 1}: {dish}")
     choose_recipe = input("Choose a recipe: ")
     while choose_recipe not in recipies:
-        choose_recipe = input("Sorry,Please choose a recipe that actually exists in the category")
+        choose_recipe = input("Sorry,Please choose a recipe that actually exists in the category(Type its name not its number):  ")
 
     Path(main_path,category,f"{choose_recipe}.txt").unlink()
     os.system("cls")
@@ -92,7 +90,8 @@ while not end_program:
 
     print("Recipies are in C:\\My_Coding_Projects\\My_Practice_With_Python\\basic_games_and_applications_(simple_projects)\\recipe_book\\recipes")
     print(f"There are {counting_categories()} categories to choose from")
-    print("""1 --> Read recipe
+    print("""
+    1 --> Read recipe
     2 --> create recipe
     3 --> create category
     4 --> delete recipe
@@ -101,10 +100,9 @@ while not end_program:
 
 
     user_reply = input("Which action would you like to perform?\nif you are done with your work,choose the sixth option \"end program\":   ")
-
+    os.system("cls")
     while user_reply not in ["1","2","3","4","5","6"]:
-        print("Please type the number corresponding to the action to perform i.e (1 to 6)")
-
+        user_reply = input("Please type the number corresponding to the action to perform i.e (1 to 6):  ")
     match user_reply:
         case "1":
             read_recipe()
