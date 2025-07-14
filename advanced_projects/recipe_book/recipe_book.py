@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 
 if __name__ == "__main__":
-    main_path = Path("C:\\My_Coding_Projects\\My_Practice_With_Python\\basic_games_and_applications_(simple_projects)\\recipe_book\\recipes")
+    main_path = Path("/advanced_projects/recipe_book/recipes")
 
     def choosing_category():
         categories_set = set()

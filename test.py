@@ -1,6 +1,15 @@
-class Dog:
-    wings = False
-    def __init__(self,color):
-        self.color = color
+if __name__ == "__main__":
+    class Dog:
+        wings = False
+        def __init__(self,color):
+            self.color = color
+        @classmethod
+        def wing(cls):
+            cls.wings = True
 
-print(Dog.wings)
+
+    class Bark(Dog):
+        pass
+
+
+    print(Dog.wings)
