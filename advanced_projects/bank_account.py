@@ -6,10 +6,12 @@ class Person:
         self.lastname = last_name
 
 class Customer(Person):
-    def __init__(self,firstname,lastname,account_number,balance):
+    def __init__(self,firstname,lastname,account_number,balance = 0):
         super().__init__(firstname,lastname)
         self.account_number = account_number
         self.balance = balance
+    def __str__(self):
+        return f"Client: {self.firstname + " " + self.lastname}\naccount number: {self.account_number}"
 
     def deposit(self,amount):
         self.balance += amount
@@ -20,9 +22,8 @@ def access():
     f_name = input("Welcome to SBI!,Please enter your firstname: ")
     l_name = input("Please enter your lastname: ")
     acc_num = input("Your bank account number: ")
-    balance_rem = int(input("Your balance in your account: "))
-    print(f"Welcome! {f"{f_name} {l_name}"}\naccount number: {acc_num}\nbalance: {balance_rem}")
-    customer = Customer(f_name,l_name,acc_num,balance_rem)
+    customer = Customer(f_name,l_name,acc_num)
+    print(customer)
     return customer
 
 def choice():
