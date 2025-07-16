@@ -17,6 +17,7 @@ def choosing_category():
     return choose_category
 
 def read_recipe():
+
     category = choosing_category()
     recipe_set = set()
     for paths in main_path.glob(f"{category}/*.txt"):
