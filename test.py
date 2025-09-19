@@ -1,1 +1,1 @@
-import dog
+from random import uniform
